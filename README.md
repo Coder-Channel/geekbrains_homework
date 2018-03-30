@@ -1,2 +1,2 @@
 # geekbrains_homework
-The my homeworks for Geekbrains ReactJS
+Для второго занятия по курсу ReactJS.
