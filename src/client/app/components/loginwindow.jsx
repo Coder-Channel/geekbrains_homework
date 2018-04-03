@@ -28,7 +28,7 @@ export default class LoginWindow extends Component {
             <div>
                 <input type="button" onClick={this.exitOfMenu} value="Close"></input>
                 <input className="loginName" type="text" placeholder="Login"></input>
-                <input className="password" type="text" placeholder="password"></input>
+                <input className="password" type="password" placeholder="password"></input>
                 <input className="buttontologin" type="button" value="Sign in" onClick={this.onClickLoginHandler}></input>
             </div>
         </loginwindow>
