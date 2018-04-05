@@ -26,10 +26,10 @@ export default class LoginWindow extends Component {
     render() {
         return <loginwindow class="loginWindow">
             <div>
-                <input type="button" onClick={this.exitOfMenu} value="Close"></input>
-                <input className="loginName" type="text" placeholder="Login"></input>
-                <input className="password" type="password" placeholder="Password"></input>
-                <input className="buttontologin" type="button" value="Sign in" onClick={this.onClickLoginHandler}></input>
+                <input type="button" onClick={this.exitOfMenu} value="Закрыть"></input>
+                <input className="loginName" type="text" placeholder="Логин"></input>
+                <input className="password" type="password" placeholder="Пароль"></input>
+                <input className="buttontologin" type="button" value="Войти" onClick={this.onClickLoginHandler}></input>
             </div>
         </loginwindow>
     }

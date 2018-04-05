@@ -71,3 +71,23 @@ body {
     border-radius: 5px;
     outline: none;
 }
+
+.pokemonList pokemon {
+    display: block;
+    margin: 5px auto;
+    padding: 5px 5px;
+    width: 300px;
+    background-color: dimgray;
+    border-radius: 10px;
+}
+
+.pokemonList pokemon ul li {
+    list-style: none;
+}
+
+.pokemonList pokemon img {
+    display: block;
+    margin: 0 auto;
+    width: 128px;
+    height: 128px;
+}

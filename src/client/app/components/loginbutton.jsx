@@ -8,7 +8,7 @@ export default class LoginButton extends Component {
 
     render() {
         return <loginbutton className="login" onClick={this.onClickHandler}>
-            <input type="button" value="login"></input>
+            <input type="button" value="Войти"></input>
         </loginbutton>;
     }
 }
