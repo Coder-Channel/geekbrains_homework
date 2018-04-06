@@ -1,0 +1,93 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: lightgray;
+}
+
+.menu {
+    background-color: slategrey;
+    height: 50px;
+}
+
+.menu ul li {
+    list-style-type: none;
+    display: inline-block;
+    width: 100px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.menu ul li a {
+    color: white;
+    font-family: consolas;
+    text-decoration: none;
+}
+
+.login input {
+    width: 150px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 10px;
+    outline: none;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.context {
+    padding: 0 10px 0 10px;
+    margin-top: 15px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px;
+}
+
+.loginWindow {
+    display: none;
+}
+
+.loginWindow div {
+    position: fixed;
+    margin-left: 40%;
+    width: 20%;
+    min-width: 200px;
+    height: 210px;
+    background-color: whitesmoke;
+    text-align: center;
+    border-width: 3px;
+    border-style: solid;
+    border-color: gray;
+    border-radius: 10px;
+}
+
+.loginWindow div input {
+    margin-top: 20px;
+    width: 80%;
+    height: 25px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.pokemonList pokemon {
+    display: block;
+    margin: 5px auto;
+    padding: 5px 5px;
+    width: 300px;
+    background-color: dimgray;
+    border-radius: 10px;
+}
+
+.pokemonList pokemon ul li {
+    list-style: none;
+}
+
+.pokemonList pokemon img {
+    display: block;
+    margin: 0 auto;
+    width: 128px;
+    height: 128px;
+}
