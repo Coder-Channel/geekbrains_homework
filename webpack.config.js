@@ -20,5 +20,10 @@ module.exports = {
                 use: "babel-loader"
             }
         ]
+    },
+    devServer: {
+        contentBase: path.join(__dirname, "src", "client", "public"),
+        compress: true,
+        port: 8080
     }
 };
