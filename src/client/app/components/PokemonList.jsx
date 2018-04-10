@@ -25,12 +25,7 @@ export default class PokemonList extends PureComponent {
     };
 
     handleNameClick = (name) => {
-        this.setState((prevState) => {
-            return {
-                users: prevState.pokemons.filter(pokemon => pokemon.name !== name)
-            }
-        });
-    }
+    };
 
     render() {
         const { pokemons } = this.state;
