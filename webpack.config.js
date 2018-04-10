@@ -1,6 +1,8 @@
 const path = require("path");
+const CssExtract = require("mini-css-extract-plugin");
 
 module.exports = {
+    devtool: "source-map",
     entry: path.join(__dirname, "src", "client", "app", "index.jsx"),
     output: {
         path: path.join(__dirname, "src", "client", "public"),
@@ -18,12 +20,26 @@ module.exports = {
                 test: /\.jsx?/,
                 include: path.join(__dirname, "src", "client", "app"),
                 use: "babel-loader"
+            },
+            {
+                test: /\.css/,
+                use: [
+                    CssExtract.loader,
+                    {
+                        loader: "css-loader",
+                        options: {
+                            modules: true,
+                            localIdentName: "[path][name]__[local]--[hash:base64:5]"
+                        }
+                    }
+                ]  
             }
         ]
     },
-    devServer: {
-        contentBase: path.join(__dirname, "src", "client", "public"),
-        compress: true,
-        port: 8080
-    }
+    plugins: [
+        new CssExtract({
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+        })
+    ],
 };
