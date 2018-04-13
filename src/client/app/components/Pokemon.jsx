@@ -6,26 +6,70 @@ export default class Pokemon extends PureComponent {
     static propTypes = {
         name: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
-        onNameClick: PropTypes.func
+    };
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            loading: true,
+            isOpen: false,
+            weight: 0,
+            abilities: []
+        };
     };
 
     clickHandler = () => {
-        const { onNameClick } = this.props;
-        const { name } = this.props;
-        if (typeof onNameClick === "function") {
-            onNameClick(name);
+        const { name, url } = this.props;
+        if (this.state.isOpen == false) {
+            if (this.state.loading == true) {
+                this.setState({
+                    isOpen: true
+                });
+                fetch(url)
+                    .then(res => res.json())
+                    .then(pokemon => {
+                        this.setState({
+                            weight: pokemon.weight,
+                            abilities: pokemon.abilities,
+                            loading: false
+                        });
+                })
+            }
+            else {
+                this.setState({
+                    isOpen: true
+                });
+            }
+        }
+        else {
+            if (this.state.loading == false) {
+                this.setState({
+                    isOpen: false
+                });
+            }
         }
     };
 
     render() {
         const { name, url } = this.props;
-        const id = parseInt(url.slice(34, -1))
-        let imgPath = "pokemons-images/"+id+".png";
+        const { weight, abilities, loading, isOpen } = this.state;
+        const id = parseInt(url.slice(34, -1));
+        const imgPath = "pokemons-images/"+id+".png";
+        const weightStr = "Вес: "+weight;
         return (
             <pokemon onClick={this.clickHandler}>
                 <ul>
                     <li>Название: {name}</li>
                     <li>Номер: {id}</li>
+                    { isOpen ? loading ? <li>Идёт загрузка</li> : (
+                        <ul>
+                        <li>{weightStr}</li>
+                        {abilities.map(function ability(value) {
+                            return <li>Способность: {value.ability.name}</li>
+                        })}
+                        </ul>
+                    ) : ""}
                 </ul>
                 <img src={imgPath} />
             </pokemon>

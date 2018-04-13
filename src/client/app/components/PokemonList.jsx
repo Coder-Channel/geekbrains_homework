@@ -24,14 +24,11 @@ export default class PokemonList extends PureComponent {
         pokemons: []
     };
 
-    handleNameClick = (name) => {
-    };
-
     render() {
         const { pokemons } = this.state;
         return (
             <pokemonlist className={styles.pokemonList}>
-                {pokemons.results.map(pokemon => <Pokemon {...pokemon} onNameClick={this.handleNameClick} />)}
+                {pokemons.results.map(pokemon => <Pokemon {...pokemon} />)}
             </pokemonlist>
         );
     };
