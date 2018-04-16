@@ -1,5 +1,6 @@
 const path = require("path");
 const CssExtract = require("mini-css-extract-plugin");
+const HtmlWebpack = require("html-webpack-plugin");
 
 module.exports = {
     devtool: "source-map",
@@ -33,6 +34,15 @@ module.exports = {
                         }
                     }
                 ]  
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {}  
+                  }
+                ]
             }
         ]
     },
@@ -40,6 +50,7 @@ module.exports = {
         new CssExtract({
             filename: "[name].css",
             chunkFilename: "[id].css"
-        })
+        }),
+        new HtmlWebpack()
     ],
 };

@@ -55,8 +55,8 @@ export default class Pokemon extends PureComponent {
         const { name, url } = this.props;
         const { weight, abilities, loading, isOpen } = this.state;
         const id = parseInt(url.slice(34, -1));
-        const imgPath = "pokemons-images/"+id+".png";
         const weightStr = "Вес: "+weight;
+        const image = require("../images/pokemons-images/"+id+".png");
         return (
             <pokemon onClick={this.clickHandler}>
                 <ul>
@@ -65,13 +65,13 @@ export default class Pokemon extends PureComponent {
                     { isOpen ? loading ? <li>Идёт загрузка</li> : (
                         <ul>
                         <li>{weightStr}</li>
-                        {abilities.map(function ability(value) {
+                        {abilities.map(function handler(value) {
                             return <li>Способность: {value.ability.name}</li>
                         })}
                         </ul>
                     ) : ""}
                 </ul>
-                <img src={imgPath} />
+                <img src={image} />
             </pokemon>
         );
     };

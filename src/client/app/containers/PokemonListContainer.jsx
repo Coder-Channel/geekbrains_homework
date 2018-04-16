@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import PokemonList from "../components/PokemonList"
 
@@ -32,6 +33,7 @@ export default class PokemonListContainer extends PureComponent {
         let { loading, pokemons } = this.state;
         return (
             <div>
+                <Link to="/comments">Comments</Link>
                 { loading ? "Идёт загрузка" : <PokemonList pokemons={pokemons} />}
             </div>
         );
